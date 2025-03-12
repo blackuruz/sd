@@ -1,4 +1,4 @@
-package main
+package backend
 
 import (
 	"context"
@@ -8,8 +8,8 @@ import (
 )
 
 type StreamManager struct {
-	mu         sync.Mutex
-	processes  map[string]*exec.Cmd
+	mu        sync.Mutex
+	processes map[string]*exec.Cmd
 }
 
 func NewStreamManager() *StreamManager {
@@ -58,9 +58,9 @@ func (sm *StreamManager) StopStream(ctx context.Context, streamKey string) error
 	defer sm.mu.Unlock()
 
 	if cmd, exists := sm.processes[streamKey]; exists {
-		cmd.Process.Kill()
+		err := cmd.Process.Kill()
 		delete(sm.processes, streamKey)
-		return nil
+		return err
 	}
 	return fmt.Errorf("stream not found")
 }

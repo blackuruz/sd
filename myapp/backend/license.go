@@ -1,4 +1,4 @@
-package main
+package backend
 
 import (
 	"crypto/md5"
@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 )
 
+// Konfigurasi lisensi
 const (
 	activationURL   = "https://omahbot.com/member/softsale/api/activate?key=%s&request[hardware-id]=%s"
 	deactivationURL = "https://omahbot.com/member/softsale/api/deactivate?key=%s&request[hardware-id]=%s"
@@ -30,9 +31,7 @@ type LicenseManager struct {
 func NewLicenseManager() *LicenseManager {
 	appData := os.Getenv("APPDATA")
 	activationDir := filepath.Join(appData, "WailsStreamer")
-	if err := os.MkdirAll(activationDir, 0755); err != nil {
-		fmt.Printf("Gagal membuat direktori aktivasi: %v\n", err)
-	}
+	os.MkdirAll(activationDir, 0755)
 	return &LicenseManager{FilePath: filepath.Join(activationDir, licenseFileName)}
 }
 
@@ -77,17 +76,14 @@ func (lm *LicenseManager) ActivateLicense(licenseKey string) error {
 		return err
 	}
 	defer resp.Body.Close()
-
 	body, _ := ioutil.ReadAll(resp.Body)
 	var data map[string]interface{}
 	if err := json.Unmarshal(body, &data); err != nil {
 		return err
 	}
-
 	if code, ok := data["code"].(string); !ok || code != "ok" {
 		return fmt.Errorf("aktivasi gagal")
 	}
-
 	info := LicenseInfo{
 		LicenseKey:     licenseKey,
 		OmahbotKey:     hwid,
