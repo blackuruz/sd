@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Streamer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>YouTube Streamer</h1>
+
+    <!-- Lisensi -->
+    <div>
+        <input type="text" id="licenseKey" placeholder="Enter License Key">
+        <button onclick="activateLicense()">Activate</button>
+        <button onclick="deactivateLicense()">Deactivate</button>
+        <p id="licenseStatus"></p>
+    </div>
+
+    <hr>
+
+    <!-- Konfigurasi Streaming -->
+    <div>
+        <input type="text" id="streamKey" placeholder="Stream Key">
+        <input type="text" id="channelName" placeholder="Channel Name">
+        <input type="file" id="videoFile" accept="video/*">
+        <button onclick="addConfig()">Add Config</button>
+        <button onclick="editConfig()">Edit Config</button>
+        <button onclick="deleteConfig()">Delete Config</button>
+        <p id="configStatus"></p>
+    </div>
+
+    <hr>
+
+    <!-- Streaming Control -->
+    <div>
+        <button onclick="startStream()">Start Streaming</button>
+        <button onclick="stopStream()">Stop Streaming</button>
+        <p id="streamStatus"></p>
+    </div>
+
+    <h2>Available Streams</h2>
+    <ul id="configList"></ul>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
