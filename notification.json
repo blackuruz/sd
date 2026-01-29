@@ -1,6 +1,6 @@
 {
     "enabled": true,
-    "message": "🎉 Tools Live Mahal ! <a href='https://omahbot.com/livetools'>Klik di sini</a> untuk info lebih lanjut.",
+    "message": "🎉 Tools Live ! <a href='https://omahbot.com/livetools'>Klik di sini</a> untuk info lebih lanjut. Info Update Versi terbaru pantengin saja disini",
     "type": "success",
     "dismissible": true,
     "link": "",
@@ -8,3 +8,4 @@
     "priority": 1
 
 }
+
