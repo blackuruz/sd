@@ -1,0 +1,9 @@
+{
+    "enabled": true,
+    "message": "🎉 Update tersedia! <a href='https://github.com/yourusername/yourrepo'>Klik di sini</a> untuk info lebih lanjut.",
+    "type": "success",
+    "dismissible": true,
+    "link": "",
+    "version": "1.0.1",
+    "priority": 1
+}
