@@ -1,6 +1,6 @@
 {
     "enabled": true,
-    "message": "🎉 Tools Live ! <a href='https://omahbot.com/livetools'>Klik di sini</a> untuk info lebih lanjut. Info Update Versi terbaru pantengin saja disini",
+    "message": "🎉 Tools Live ! <a href='https://omahbot.com/livetools'>Klik di sini</a> . Jurus Sekte Veo Hanya bisa di pelajari di khayangan",
     "type": "success",
     "dismissible": true,
     "link": "",
@@ -8,4 +8,5 @@
     "priority": 1
 
 }
+
 
